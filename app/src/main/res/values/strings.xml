@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AndroidFinal</string>
+
+    <string name="restaurant_app">Restaurant App</string>
+    <string name="take_me_into_string_restaurant_app">Take me into the app</string>
+    <string name="button">Add Restaurant</string>
+    <string name="search">Search</string>
+    <string name="add_string_restaurant_app">Add @string/restaurant_app</string>
+    <string name="title_activity_about_us">AboutUs</string>
+    <string name="title_activity_add_restaurant">Add Restaurant</string>
+    <string name="title_activity_search_restaurant">SearchRestaurant</string>
+    <string name="my_restaurants">My Restaurants</string>
+</resources>
