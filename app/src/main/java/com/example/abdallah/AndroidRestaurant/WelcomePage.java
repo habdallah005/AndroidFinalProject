@@ -5,9 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-
 import com.example.abdallah.R;
-
 
 
 public class WelcomePage extends AppCompatActivity {

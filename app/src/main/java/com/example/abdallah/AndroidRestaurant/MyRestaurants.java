@@ -1,3 +1,5 @@
+package com.example.abdallah.AndroidRestaurant;
+
 import com.example.abdallah.R;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +12,6 @@ public class MyRestaurants extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_restaurants);
-        findViewById(R.id.listMyRestos);
+        //findViewById(R.id.listMyRestos);
     }
 }

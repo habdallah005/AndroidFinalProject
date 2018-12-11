@@ -1,10 +1,11 @@
 package com.example.abdallah.AndroidRestaurant;
-import com.example.abdallah.R;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.abdallah.R;
 
 
 public class MainMenu extends AppCompatActivity {
