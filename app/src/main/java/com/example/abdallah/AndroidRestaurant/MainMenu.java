@@ -15,17 +15,17 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-       /* findViewById(R.id.btnMyRestos).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), MyRestaurants.class);
-                startActivity(i);
-            }
-        });*/
         findViewById(R.id.btnAddRestos).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), AddRestaurant.class);
+                startActivity(i);
+            }
+        });
+        findViewById(R.id.btnMyRestos).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), MyRestaurants.class);
                 startActivity(i);
             }
         });

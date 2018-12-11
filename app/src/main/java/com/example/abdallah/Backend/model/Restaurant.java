@@ -7,7 +7,13 @@ public class Restaurant {
     private String description;
     private String tags;
 
-    public Restaurant(){}
+    public Restaurant(String name, String address, String phoneNumber, String description, String tags) {
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.description = description;
+        this.tags = tags;
+    }
 
     public String getName() {
         return name;

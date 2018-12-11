@@ -1,6 +1,8 @@
 package com.example.abdallah.Backend.helpers;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -34,5 +36,23 @@ public class DBHelper extends SQLiteOpenHelper {
             }
 
         }
+    }
+
+    public boolean insertData(String name, String address, String phone, String description, String tags) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(RestaurantContract.RestaurantEntity.column_name,name);
+        contentValues.put(RestaurantContract.RestaurantEntity.column_address,address);
+        contentValues.put(RestaurantContract.RestaurantEntity.column_phone,phone);
+        contentValues.put(RestaurantContract.RestaurantEntity.column_description,description);
+        contentValues.put(RestaurantContract.RestaurantEntity.column_tags,tags);
+        long result = db.insert(RestaurantContract.RestaurantEntity.TABLE_RESTAURANT,null,contentValues);
+        return true;
+    }
+
+    public Cursor getAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " +RestaurantContract.RestaurantEntity.TABLE_RESTAURANT,null);
+        return res;
     }
 }
