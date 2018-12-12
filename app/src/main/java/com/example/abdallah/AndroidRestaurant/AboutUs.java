@@ -5,7 +5,6 @@ import android.app.Activity;
 
 
 
-import com.example.abdallah.R;
 
 public class AboutUs extends Activity {
 
