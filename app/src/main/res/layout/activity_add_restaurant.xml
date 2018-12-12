@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AndroidRestaurant.AddRestaurant">
+    tools:context=".AddRestaurant">
 
-    <EditText
+<EditText
         android:id="@+id/txtName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -93,24 +93,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPhone" />
 
-    <EditText
+    <Spinner
         android:id="@+id/txtTags"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="368dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="Tags"
-        android:inputType="textPersonName"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/btnAdd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescription"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
 
 </android.support.constraint.ConstraintLayout>

@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 
 
-
-
 public class MainMenu extends AppCompatActivity {
 
     @Override
@@ -36,7 +34,5 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
     }
 }
