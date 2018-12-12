@@ -3,6 +3,7 @@ package com.example.abdallah.AndroidRestaurant;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -65,7 +66,10 @@ public class AddRestaurant extends Activity implements AdapterView.OnItemSelecte
             @Override
             public void onClick(View v) {
                 add_Restaurant(v);
-            }
+                Snackbar snackbar  = Snackbar.make(findViewById(R.id.myAddLayout),
+                        "Added Successfully ", Snackbar.LENGTH_SHORT);
+                 snackbar.show();
+               }
         });
 
     }

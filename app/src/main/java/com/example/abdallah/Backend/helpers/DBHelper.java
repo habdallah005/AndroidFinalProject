@@ -11,12 +11,11 @@ import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-
-
     public static final int DB_VERSION = 2; // Database version
     public static final String DB_NAME = "Restaurant.db";
 
     private Context context;
+    Restaurant []resta;
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -63,7 +62,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         String[] projection = {
                 RestaurantContract.RestaurantEntity.column_name,
-                RestaurantContract.RestaurantEntity.column_phone
+               /* RestaurantContract.RestaurantEntity.column_address,
+                RestaurantContract.RestaurantEntity.column_phone,
+                RestaurantContract.RestaurantEntity.column_description,
+                RestaurantContract.RestaurantEntity.column_tags*/
 
         };
 
@@ -80,21 +82,96 @@ public class DBHelper extends SQLiteOpenHelper {
         //int i =0;
 
         ArrayList<String> buffer = new ArrayList<>();
+
         int i = 0;
 
         while (cursor.moveToNext()) {
             String name = cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_name));
-            String phone = cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_phone));
+            buffer.add(name+"");
+            name="";
+          /*  String phone = cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_phone));
 
-            buffer.add(name + " " + phone);
+            String address = cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_address));
+            String description = cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_description));
+            String tags = cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_tags));
+            buffer.add(name+"");
+            resta[i].setName(name);
+            resta[i].setName(phone);
+            resta[i].setName(address);
+            resta[i].setName(description);
+            resta[i].setName(tags);
 
             name = " ";
             phone = " ";
-
+           i++;*/
         }
         return buffer;
     }
 
+    public String find_DetailsRestaurant(SQLiteDatabase db, long id) {
+        String fn="";
+        String[] projection1 = {
+
+                RestaurantContract.RestaurantEntity.column_name,
+                RestaurantContract.RestaurantEntity.column_address,
+                RestaurantContract.RestaurantEntity.column_phone,
+               RestaurantContract.RestaurantEntity.column_description,
+               RestaurantContract.RestaurantEntity.column_tags,
+         };
+
+        String selection = RestaurantContract.RestaurantEntity._ID +" = ? ";
+        String[]  selectionArgs = {Long.toString(id)};
 
 
+        Cursor cursor = db.query(RestaurantContract.RestaurantEntity.TABLE_NAME,
+                projection1,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null && cursor.getCount() > 0){
+            cursor.moveToFirst();
+            do {
+                fn = " ";
+                fn += "\n FirstName "+ " " +
+                        cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_name))
+                        + "\n Address : " +
+                        cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_address))
+                        + " \n Phone : " +
+                        cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_phone))
+                        + "\n Description : " +
+                        cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_description))
+                        + "\n Tags : " +
+                        cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_tags));
+
+            } while (cursor.moveToNext());
+        }
+
+
+        cursor.close();
+        return fn;
+    }
+/*
+     public ArrayList<String> find_Search(String query) {
+
+         ArrayList<String> buffer = new ArrayList<>();
+         for (int i = 0; i < resta.length; i++) {
+             if (resta[i].getName().equals(query)) {
+                 String name = resta[i].getName();
+                 buffer.add(name);
+                 name = "";
+             }
+
+             if (resta[i].getTags().equals(query)) {
+                 String name = resta[i].getName();
+                 buffer.add(name);
+                 name = "";
+             }
+         }
+         return buffer;
+     }
+*/
 }
