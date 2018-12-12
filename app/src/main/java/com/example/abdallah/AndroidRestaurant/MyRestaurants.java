@@ -1,7 +1,7 @@
 package com.example.abdallah.AndroidRestaurant;
 
 import com.example.abdallah.Backend.helpers.DBHelper;
-import com.example.abdallah.R;
+
 
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
@@ -31,7 +31,7 @@ public class MyRestaurants extends AppCompatActivity {
         listItem = new ArrayList<>();
         lvItems = findViewById(R.id.ListRestos);
 
-        db.insertData("Scaramouche", "One Benvenuto Place", "416 555 1234", "Old School", "tasty");
+        //db.insertData("Scaramouche", "One Benvenuto Place", "416 555 1234", "Old School", "tasty");
 
 
         viewData();
@@ -39,12 +39,12 @@ public class MyRestaurants extends AppCompatActivity {
     }
 
     private void viewData() {
-        Cursor cursor = db.viewData();
+       /* Cursor cursor = db.viewData();
 
         while (cursor.moveToNext()) {
             listItem.add(cursor.getString(1));
         }
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItem);
-        lvItems.setAdapter(adapter);
+        lvItems.setAdapter(adapter);*/
     }
 }
