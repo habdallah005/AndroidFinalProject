@@ -3,7 +3,7 @@ package com.example.abdallah.AndroidRestaurant;
 import com.example.abdallah.Backend.helpers.DBHelper;
 import com.example.abdallah.R;
 
-import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -11,14 +11,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-
-
 public class MyRestaurants extends AppCompatActivity {
-    DBHelper db;
-
-    ArrayList<String> listItem;
-    ArrayAdapter adapter;
-    ListView lvItems;
+    private ArrayList<String> data = new ArrayList<>();
 
 
     @Override
@@ -26,25 +20,20 @@ public class MyRestaurants extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_restaurants);
 
-        DBHelper db = new DBHelper(this);
+        DBHelper dbHelper = new DBHelper(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        data = dbHelper.viewData(db);
 
-        listItem = new ArrayList<>();
-        lvItems = findViewById(R.id.ListRestos);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, data);
+        ListView list = findViewById(R.id.ListRestos);
+        list.setAdapter(adapter);
 
-        db.insertData("Scaramouche", "One Benvenuto Place", "416 555 1234", "Old School", "tasty");
+       /*list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
-        viewData();
-
-    }
-
-    private void viewData() {
-        Cursor cursor = db.viewData();
-
-        while (cursor.moveToNext()) {
-            listItem.add(cursor.getString(1));
-        }
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItem);
-        lvItems.setAdapter(adapter);
+           }
+       });*/
     }
 }
