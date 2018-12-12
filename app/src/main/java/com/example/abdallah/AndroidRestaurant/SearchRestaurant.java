@@ -3,7 +3,7 @@ package com.example.abdallah.AndroidRestaurant;
 import android.os.Bundle;
 import android.app.Activity;
 
-import com.example.abdallah.R;
+
 
 
 public class SearchRestaurant extends Activity {
