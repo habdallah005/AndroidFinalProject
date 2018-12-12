@@ -47,12 +47,13 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(RestaurantContract.RestaurantEntity.column_description,description);
         contentValues.put(RestaurantContract.RestaurantEntity.column_tags,tags);
         long result = db.insert(RestaurantContract.RestaurantEntity.TABLE_RESTAURANT,null,contentValues);
-        return true;
+        return result !=-1;
     }
 
-    public Cursor getAllData() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " +RestaurantContract.RestaurantEntity.TABLE_RESTAURANT,null);
-        return res;
+    public Cursor viewData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("select * from " +RestaurantContract.RestaurantEntity.TABLE_RESTAURANT,null);
+        return cursor;
     }
 }

@@ -14,29 +14,37 @@ import java.util.ArrayList;
 
 
 public class MyRestaurants extends AppCompatActivity {
-    private ArrayList<String> item;
-    private ArrayAdapter<String> itemsAdapter;
-    private ListView lvItems;
+    DBHelper db;
+
+    ArrayList<String> listItem;
+    ArrayAdapter adapter;
+    ListView lvItems;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_restaurants);
 
-        lvItems = findViewById(R.id.ListRestos);
-        item = new ArrayList<>();
-
         DBHelper db = new DBHelper(this);
+
+        listItem = new ArrayList<>();
+        lvItems = findViewById(R.id.ListRestos);
 
         db.insertData("Scaramouche", "One Benvenuto Place", "416 555 1234", "Old School", "tasty");
 
 
-        Cursor res = db.getAllData();
-        res.moveToFirst();
-        item.add(res.getString(1) + " " + res.getString(2) + "\n");
+        viewData();
 
+    }
 
-        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, item);
-        lvItems.setAdapter(itemsAdapter);
+    private void viewData() {
+        Cursor cursor = db.viewData();
+
+        while (cursor.moveToNext()) {
+            listItem.add(cursor.getString(1));
+        }
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItem);
+        lvItems.setAdapter(adapter);
     }
 }
