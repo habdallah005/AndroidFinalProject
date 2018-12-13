@@ -1,6 +1,9 @@
 package com.example.abdallah.Backend.helpers;
 import android.provider.BaseColumns;
 
+//Android Final Project for December 2018 COMP3074 Przemyslaw Pawluk
+//Done by Abdallahman Habyarimana, Christopher Haddock, Peter Bugden, Renata Moura
+
 public final class RestaurantContract {
     private RestaurantContract() {}
 

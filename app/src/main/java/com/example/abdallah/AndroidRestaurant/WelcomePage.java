@@ -1,5 +1,8 @@
 package com.example.abdallah.AndroidRestaurant;
 
+//Android Final Project for December 2018 COMP3074 Przemyslaw Pawluk
+//Done by Abdallahman Habyarimana, Christopher Haddock, Peter Bugden, Renata Moura
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

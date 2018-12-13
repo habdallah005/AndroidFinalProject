@@ -1,5 +1,8 @@
 package com.example.abdallah.Backend.helpers;
 
+//Android Final Project for December 2018 COMP3074 Przemyslaw Pawluk
+//Done by Abdallahman Habyarimana, Christopher Haddock, Peter Bugden, Renata Moura
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
