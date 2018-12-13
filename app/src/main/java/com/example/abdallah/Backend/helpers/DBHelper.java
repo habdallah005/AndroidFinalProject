@@ -136,7 +136,7 @@ public class DBHelper extends SQLiteOpenHelper {
             cursor.moveToFirst();
             do {
                 fn = " ";
-                fn += "\n FirstName "+ " " +
+                fn += "\n FirstName :"+ " " +
                         cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_name))
                         + "\n Address : " +
                         cursor.getString(cursor.getColumnIndexOrThrow(RestaurantContract.RestaurantEntity.column_address))
