@@ -29,9 +29,9 @@ Status: Finished (6) Application should have a list of restaurants
 Status: Finished (7) Selecting a restaurant from the list user should be presented with the Details screen
 
 
-(8) User should have an option to see a full-screen map with the location of the restaurant
-(9) User should have an option to get directions from users current location to the restaurant
-(10) User should have an option to share information about the restaurant from the Details screen
+(8) User should have an option to see a full-screen map with the location of the restaurant DONE PETER
+(9) User should have an option to get directions from users current location to the restaurant PETER
+(10) User should have an option to share information about the restaurant from the Details screen PETER
 Status: Finished (11) Application should have About screen with names of all team membres
 
 Status: Finished(12) Application should have a Splash screen with application logo
