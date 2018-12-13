@@ -76,6 +76,18 @@ public class ShareActivity extends AppCompatActivity {
                 }
             }
 
+
+
+        });
+        findViewById(R.id.btnTwitter).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://ctt.ac/bzv5N"));
+                startActivity(intent);
+            }
         });
     }
 }
